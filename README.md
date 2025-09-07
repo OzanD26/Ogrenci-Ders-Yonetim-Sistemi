@@ -135,7 +135,12 @@ VITE_API_URL="http://localhost:5174"
 
 ---
 
-## 📜 Lisans
-MIT Lisansı ile sunulmuştur.
+![Giris](./png/giris.jpg)
+![Home](./png/home.jpg)
+![Yonetim](./png/yonetim.jpg)
+![Ogrenci Giris](./png/ogrencigiris1.jpg)
+![Ogrenci Kayit](./png/ogrencikayitol.jpg)
+![OGrenci Yonetim](./png/ogrenciyonetim.jpg)
+
 
 
