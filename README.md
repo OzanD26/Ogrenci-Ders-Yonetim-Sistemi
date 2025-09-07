@@ -17,98 +17,120 @@ Frontend kısmı **React (Vite + TypeScript)** ile, backend kısmı ise **Node.j
 
 ## 📂 Proje Yapısı
 
+```
 student-course-app/
-├── frontend/ # React (Vite) projesi
-│ ├── src/
-│ │ ├── api/ # Axios client
-│ │ ├── components/
-│ │ ├── pages/ # Sayfalar (Students, Courses, Enrollments, Login/Register vb.)
-│ │ ├── lib/ # auth yardımcıları
-│ │ └── App.tsx
-│ └── vite.config.ts
+├── frontend/          # React (Vite) projesi
+│   ├── src/
+│   │   ├── api/       # Axios client
+│   │   ├── components/
+│   │   ├── pages/     # Sayfalar (Students, Courses, Enrollments, Login/Register vb.)
+│   │   ├── lib/       # auth yardımcıları
+│   │   └── App.tsx
+│   └── vite.config.ts
 │
-├── backend/ # Express + Prisma API
-│ ├── prisma/
-│ │ ├── schema.prisma
-│ │ └── migrations/
-│ ├── src/
-│ │ ├── routes.ts
-│ │ ├── controllers/
-│ │ ├── services/
-│ │ └── middleware/
-│ └── Dockerfile
+├── backend/           # Express + Prisma API
+│   ├── prisma/
+│   │   ├── schema.prisma
+│   │   └── migrations/
+│   ├── src/
+│   │   ├── routes.ts
+│   │   ├── controllers/
+│   │   ├── services/
+│   │   └── middleware/
+│   └── Dockerfile
 │
 ├── docker-compose.yml
 ├── README.md
 └── package.json
+```
+
+---
 
 ## ⚙️ Gereksinimler
-- [Node.js](https://nodejs.org/) (>= 18)
-- [Docker](https://www.docker.com/)
-- [npm](https://www.npmjs.com/) veya [yarn]/[pnpm]
-- 
+- [Node.js](https://nodejs.org/) (>= 18)  
+- [Docker](https://www.docker.com/)  
+- [npm](https://www.npmjs.com/) veya [yarn]/[pnpm]  
 
-## Projeyi başlatmak için kök klasörde şu komutu çalıştırın:
-docker compose down,
-docker-compose up --build
-Backend API → http://localhost:5174
+---
 
-Frontend → http://localhost:5173
+## 🐳 Docker ile Çalıştırma
 
-PostgreSQL DB → localhost:5432
+Projeyi başlatmak için kök klasörde şu komutu çalıştırın:
 
-## Frotnend
-cd frontend,
-npm install,
+```bash
+docker compose down
+docker compose up --build
+```
+
+- Backend API → [http://localhost:5174](http://localhost:5174)  
+- Frontend → [http://localhost:5173](http://localhost:5173)  
+- PostgreSQL DB → `localhost:5432`
+
+---
+
+## 🛠 Geliştirme Ortamı
+
+### Frontend
+```bash
+cd frontend
+npm install
 npm run dev
+```
 
-## Backend 
-cd backend,
-npm install,
+### Backend
+```bash
+cd backend
+npm install
 npm run dev
+```
 
- İlk çalıştırmada veritabanını migrate edin:
- cd backend,
-npx prisma migrate dev,
+---
+
+## 📊 Prisma & Database
+
+İlk çalıştırmada veritabanını migrate edin:
+
+```bash
+cd backend
+npx prisma migrate dev
 npx prisma db seed
+```
 
-👤 Varsayılan Hesaplar (Seed)
+---
 
-Admin:
+## 👤 Varsayılan Hesaplar (Seed)
 
-Email: admin@example.com
+**Admin:**
+- Email: `admin@example.com`
+- Şifre: `Admin123!`
 
-Şifre: Admin123!
+---
 
+## 🏗 Mimari Tercihler
+- **Frontend:** React (Vite), TypeScript, React Router DOM, Axios  
+- **Backend:** Express.js, Prisma ORM, JWT Authentication  
+- **Veritabanı:** PostgreSQL (Docker üzerinden)  
+- **ORM:** Prisma – migration ve type güvenliği için  
+- **Auth:** JWT tabanlı, role-based access (ADMIN/STUDENT)  
+- **Deploy:** Docker Compose ile servisler (frontend + backend + db)  
 
-🏗 Mimari Tercihler
+---
 
-Frontend: React (Vite), TypeScript, React Router DOM, Axios
+## 🔑 Ortam Değişkenleri
 
-Backend: Express.js, Prisma ORM, JWT Authentication
-
-Veritabanı: PostgreSQL (Docker üzerinden)
-
-ORM: Prisma – migration ve type güvenliği için
-
-Auth: JWT tabanlı, role-based access (ADMIN/STUDENT)
-
-Deploy: Docker Compose ile servisler (frontend + backend + db)
-
-
-
-
-- ### Backend (`/backend/.env`)
+### Backend (`/backend/.env`)
 ```env
 DATABASE_URL="postgresql://postgres:postgres@db:5432/scdb?schema=public"
 JWT_SECRET="super-secret-key"
 PORT=5174
+```
 
 ### Frontend (`/frontend/.env`)
 ```env
-VITE_API_URL="http://localhost:5174" 
+VITE_API_URL="http://localhost:5174"
+```
 
+---
 
-      
-
-
+## 📜 Lisans
+MIT Lisansı ile sunulmuştur.
