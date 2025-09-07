@@ -103,6 +103,9 @@ npx prisma db seed
 **Admin:**
 - Email: `admin@example.com`
 - Şifre: `Admin123!`
+**Öğrenci:**
+  - Email: `deneme@gmail.com`
+  - - Şifre: `deneme1`
 
 ---
 
