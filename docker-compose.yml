@@ -1,0 +1,48 @@
+
+services:
+  db:
+    image: postgres:16
+    container_name: sc_db
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app123
+      POSTGRES_DB: scdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - sc_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app -d scdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend
+    container_name: sc_backend
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql://app:app123@db:5432/scdb?schema=public
+      JWT_SECRET: "super_secret_change_me"
+      PORT: 4000
+      NODE_ENV: development
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "4000:4000"
+    command: sh -c "npx prisma db push && npm run seed && npm run dev"
+
+  frontend:
+    build: ./frontend
+    container_name: sc_frontend
+    environment:
+      VITE_API_BASE_URL: "http://localhost:4000"
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+
+volumes:
+  sc_pgdata:

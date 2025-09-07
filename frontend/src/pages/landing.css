@@ -1,0 +1,143 @@
+/* ==== TAM SAYFA ARKA PLAN & RESET ==== */
+html, body, #root { height: 100%; }
+* { box-sizing: border-box; }
+
+:root{
+  --bg:#0d1016;
+  --panel:#10161e;
+  --ink:#e9edf4;
+  --muted:#95a0b1;
+  --line:#edf0f5;
+  --accent:#22c55e;
+  --accent-700:#16a34a;
+  --glow: rgba(34,197,94,.18);
+}
+
+/* Uygulama genelinde olabilecek açık zeminleri bastır */
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(1100px 560px at 12% -8%, #1a233266 0%, transparent 60%),
+    radial-gradient(900px 520px at 92% 112%, #0f1a1266 0%, transparent 60%),
+    var(--bg);
+}
+
+/* Landing kabuğu: tüm yüksekliği kapla */
+.ld-wrap{
+  min-height:100dvh;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+}
+
+/* ❗ Global .container / .grid sınıfları beyaz zemin veriyorsa temizle */
+.ld-wrap .container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 18px;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+.ld-wrap .grid{
+  display: grid;
+}
+
+/* Üst bar */
+
+.ld-brand{
+  width:100%;
+  max-width:1200px;
+  padding:0 18px;
+  display:flex; align-items:center; gap:10px;
+  font-weight:700; letter-spacing:.2px;
+}
+.ld-gem{
+  width:16px; height:16px; transform:rotate(45deg);
+  background:linear-gradient(180deg, var(--accent), var(--accent-700));
+  border-radius:3px;
+  box-shadow:0 0 18px #22c55e66;
+  display:inline-block;
+}
+
+/* Hero alanı – tam genişlik, responsive */
+.ld-hero{
+  width:100%;
+  padding: 36px 0 24px;
+}
+.ld-hero .ld-text{
+  padding: 0 18px;
+}
+.ld-text h1{
+  margin:0 0 6px;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight:800;
+  letter-spacing:.3px;
+}
+.ld-text p{
+  margin:0;
+  color:var(--muted);
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+/* Kartlar */
+.ld-cards{
+  margin-top: 18px;
+  padding: 0 18px 10px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:14px;
+}
+.ld-card{
+  position:relative;
+  display:grid; grid-template-columns: auto 1fr auto; gap:14px; align-items:center;
+  padding:16px;
+  background:linear-gradient(180deg, var(--panel), #0e141b);
+  border:1px solid var(--line);
+  border-radius:14px;
+  box-shadow:0 14px 40px rgba(243, 241, 241, 0.42);
+  text-align:left; color:inherit;
+  cursor:pointer;
+  transition:transform .06s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.ld-card:hover{
+  transform:translateY(-2px);
+  border-color:#263b2f;
+  box-shadow:0 18px 46px rgba(0,0,0,.5), 0 0 0 6px var(--glow);
+}
+.ld-card:active{ transform:translateY(-1px); }
+
+.ld-emoji{
+  width:42px; height:42px; font-size:28px; display:grid; place-items:center;
+  background:#ffffff; border:1px solid var(--line); border-radius:12px;
+}
+.ld-card-body h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #ffffff;   /* 👈 Artık beyaz */
+}
+
+.ld-card-body p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #ffffff;   /* 👈 Açıklama da beyaz istersen */
+}
+
+.ld-cta{
+  color:#a7f3d0; font-weight:700; white-space:nowrap;
+}
+
+/* Footer */
+.ld-foot{
+  border-top:1px solid var(--line);
+  background:#ffffff;
+  padding:12px 18px;
+  text-align:center; color:#cfd6e2;
+}
+
+/* Küçük ekran iyileştirmeleri */
+@media (max-width:680px){
+  .ld-cards{ gap:12px; }
+  .ld-card{ padding:14px; }
+}

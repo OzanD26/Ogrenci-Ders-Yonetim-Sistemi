@@ -1,0 +1,46 @@
+:root{
+  --bg:#0d1016; --panel:#10151d; --ink:#e9edf3; --muted:#97a0af; --line:#1d2533;
+  --accent:#2ee07a; --accent-700:#19b35d; --focus: rgba(46,224,122,.18);
+  --err-bg:#2a1518; --err-bd:#6b1f26; --err-tx:#ffb8b8;
+}
+.al2-wrap{ min-height:100dvh; background:
+  radial-gradient(900px 500px at 10% -10%, #1a233266 0%, transparent 60%),
+  radial-gradient(800px 500px at 95% 110%, #0f1a1266 0%, transparent 60%), var(--bg);
+  color:var(--ink);
+}
+.al2-bar{ display:flex; justify-content:space-between; align-items:center; height:56px; padding:0 20px; border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg, #0f141b, #0b0f14); }
+.al2-brand{ display:flex; align-items:center; gap:10px; font-weight:700; }
+.al2-gem{ width:14px; height:14px; transform:rotate(45deg);
+  background:linear-gradient(180deg, var(--accent), var(--accent-700));
+  border-radius:3px; box-shadow:0 0 16px #2ee07a55; display:inline-block; }
+.al2-toplink{ color:#8feab8; text-decoration:none; font-size:14px; }
+.al2-toplink:hover{ text-decoration:underline; }
+.al2-main{ max-width:960px; margin:42px auto; padding:0 16px; display:flex; justify-content:center; }
+.al2-card{ width:min(520px, 100%); background:linear-gradient(180deg, var(--panel), #0e141b);
+  border:1px solid var(--line); border-radius:16px; padding:28px 24px; box-shadow:0 18px 50px rgba(0,0,0,.45);
+  display:grid; gap:14px; }
+.al2-head h1{ margin:0; font-size:28px; font-weight:800; letter-spacing:.2px; }
+.al2-head p{ margin:6px 0 2px; color:var(--muted); }
+.al2-error{ border:1px solid var(--err-bd); background:var(--err-bg); color:var(--err-tx);
+  padding:10px 12px; border-radius:12px; font-size:14px; }
+.al2-field{ display:grid; gap:6px; }
+.al2-field > span{ color:#c9d1dc; font-size:13px; }
+.al2-field input{ background:#0c1118; color:var(--ink); border:1px solid var(--line); border-radius:10px;
+  padding:11px 12px; outline:none; font-size:14px; transition:border .15s, box-shadow .15s; }
+.al2-field input::placeholder{ color:#6b758a; }
+.al2-field input:focus{ border-color:#263b2f; box-shadow:0 0 0 4px var(--focus); }
+.al2-row{ display:flex; justify-content:space-between; align-items:center; margin-top:2px; }
+.al2-remember{ display:flex; align-items:center; gap:8px; color:#d0d7e2; font-size:14px; }
+.al2-remember input{ width:16px; height:16px; accent-color:var(--accent); }
+.al2-link{ color:#8feab8; text-decoration:none; font-weight:600; font-size:14px; }
+.al2-link:hover{ text-decoration:underline; }
+.al2-btn{ margin-top:6px; background:linear-gradient(180deg, var(--accent), var(--accent-700));
+  color:#062412; border:none; border-radius:12px; padding:12px 14px; font-weight:800; letter-spacing:.2px;
+  box-shadow:0 10px 24px rgba(46,224,122,.25), inset 0 -2px 0 rgba(0,0,0,.25); cursor:pointer;
+  transition:filter .15s ease, transform .04s; }
+.al2-btn[disabled]{ opacity:.7; cursor:not-allowed; }
+.al2-btn:hover{ filter:brightness(1.05); }
+.al2-btn:active{ transform:translateY(1px); }
+.al2-foot{ text-align:center; color:#cdd3db; font-size:14px; margin-top:2px; }
+@media (max-width:560px){ .al2-card{ padding:22px 16px; } .al2-head h1{ font-size:24px; } }
