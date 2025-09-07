@@ -49,7 +49,7 @@ student-course-app/
 - 
 
 ## Projeyi başlatmak için kök klasörde şu komutu çalıştırın:
-docker compose down
+docker compose down,
 docker-compose up --build
 Backend API → http://localhost:5174
 
@@ -58,18 +58,18 @@ Frontend → http://localhost:5173
 PostgreSQL DB → localhost:5432
 
 ## Frotnend
-cd frontend
-npm install
+cd frontend,
+npm install,
 npm run dev
 
 ## Backend 
-cd backend
-npm install
+cd backend,
+npm install,
 npm run dev
 
  İlk çalıştırmada veritabanını migrate edin:
- cd backend
-npx prisma migrate dev
+ cd backend,
+npx prisma migrate dev,
 npx prisma db seed
 
 👤 Varsayılan Hesaplar (Seed)
