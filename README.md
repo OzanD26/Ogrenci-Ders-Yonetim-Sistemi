@@ -137,3 +137,5 @@ VITE_API_URL="http://localhost:5174"
 
 ## 📜 Lisans
 MIT Lisansı ile sunulmuştur.
+
+![Alt yazı](<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a78afa24-1bbd-4e94-a415-b512c4e39c96" />)
